@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>متجر روبلوكس الليبي 🇱🇾</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f5f7fa;
+      color: #17202a;
+    }
+
+    /* الشريط العلوي */
+    .top-bar {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 9px;
+      font-size: 14px;
+    }
+
+    .flag {
+      font-size: 23px;
+      margin-left: 7px;
+    }
+
+    /* الهيدر */
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      max-width: 1100px;
+      margin: auto;
+      padding: 17px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #e11d48;
+    }
+
+    .search {
+      flex: 1;
+      background: #f1f5f9;
+      border: none;
+      outline: none;
+      border-radius: 13px;
+      padding: 13px 16px;
+      font-size: 15px;
+    }
+
+    .cart {
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* الواجهة */
+    .hero {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 48px 25px;
+      text-align: center;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #ffffff, #eef2ff);
+    }
+
+    .hero h1 {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #64748b;
+      font-size: 16px;
+    }
+
+    /* المنتجات */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 18px 50px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 17px;
+    }
+
+    .section-title h2 {
+      font-size: 24px;
+    }
+
+    .badge {
+      background: #e2e8f0;
+      color: #475569;
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 17px;
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+      transition: 0.2s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.09);
+    }
+
+    .product-image {
+      height: 125px;
+      border-radius: 14px;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 55px;
+      margin-bottom: 14px;
+    }
+
+    .product h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      color: #64748b;
+      font-size: 13px;
+      min-height: 35px;
+    }
+
+    .price {
+      font-size: 19px;
+      font-weight: bold;
+      margin: 14px 0;
+    }
+
+    .price small {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .buy {
+      width: 100%;
+      padding: 11px;
+      border: none;
+      border-radius: 11px;
+      background: #111827;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .buy:hover {
+      background: #263244;
+    }
+
+    /* الفوتر */
+    footer {
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      color: #64748b;
+      padding: 25px;
+    }
+
+    /* الجوال */
+    @media (max-width: 800px) {
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      .search {
+        order: 3;
+        flex-basis: 100%;
+      }
+
+      .hero {
+        margin: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- علم ليبيا -->
+  <div class="top-bar">
+    <span class="flag">🇱🇾</span>
+    متجر روبلوكس الليبي — الأسعار بالدينار الليبي
+  </div>
+
+  <!-- القائمة -->
+  <header>
+    <div class="navbar">
+
+      <div class="logo">
+        Roblox <span>Store</span>
+      </div>
+
+      <input
+        id="search"
+        class="search"
+        type="text"
+        placeholder="🔎 ابحث عن منتج..."
+        oninput="searchProducts()"
+      >
+
+      <button class="cart" onclick="showCart()">
+        🛒 السلة (<span id="cartCount">0</span>)
+      </button>
+
+    </div>
+  </header>
+
+  <!-- الواجهة -->
+  <section class="hero">
+
+    <h1>🎮 متجر روبلوكس الليبي 🇱🇾</h1>
+
+    <p>
+      متجر بسيط وسريع لمنتجات Roblox
+    </p>
+
+  </section>
+
+  <!-- المنتجات -->
+  <main class="container">
+
+    <div class="section-title">
+
+      <h2>المنتجات</h2>
+
+      <span class="badge">
+        متجر روبلوكس
+      </span>
+
+    </div>
+
+    <div id="products" class="products"></div>
+
+  </main>
+
+  <!-- الفوتر -->
+  <footer>
+    © 2026 متجر روبلوكس الليبي 🇱🇾
+  </footer>
+
+
+  <script>
+
+    const products = [
+
+      {
+        name: "Robux",
+        description: "اشحن حسابك بالـ Robux",
+        price: 25,
+        icon: "🪙"
+      },
+
+      {
+        name: "Game Pass",
+        description: "منتجات Game Pass لألعاب Roblox",
+        price: 40,
+        icon: "🎟️"
+      },
+
+      {
+        name: "منتجات Roblox",
+        description: "منتجات وأشياء مميزة داخل الألعاب",
+        price: 60,
+        icon: "🎮"
+      },
+
+      {
+        name: "منتج مميز",
+        description: "أضف منتجك الخاص هنا",
+        price: 75,
+        icon: "⭐"
+      }
+
+    ];
+
+
+    let cart = [];
+
+
+    function displayProducts(list = products) {
+
+      const container =
+        document.getElementById("products");
+
+      container.innerHTML = "";
+
+      list.forEach((product, index) => {
+
+        container.innerHTML += `
+
+          <div class="product">
+
+            <div class="product-image">
+              ${product.icon}
+            </div>
+
+            <h3>
+              ${product.name}
+            </h3>
+
+            <div class="description">
+              ${product.description}
+            </div>
+
+            <div class="price">
+              ${product.price}
+              <small>د.ل</small>
+            </div>
+
+            <button
+              class="buy"
+              onclick="addToCart(${index})"
+            >
+              أضف للسلة 🛒
+            </button>
+
+          </div>
+
+        `;
+
+      });
+
+    }
+
+
+    function addToCart(index) {
+
+      cart.push(products[index]);
+
+      document.getElementById("cartCount").textContent =
+        cart.length;
+
+    }
+
+
+    function showCart() {
+
+      if (cart.length === 0) {
+
+        alert("السلة فارغة 🛒");
+
+        return;
+      }
+
+      let total = 0;
+
+      cart.forEach(product => {
+        total += product.price;
+      });
+
+      alert(
+        "عدد المنتجات: " +
+        cart.length +
+        "\nالإجمالي: " +
+        total +
+        " د.ل"
+      );
+
+    }
+
+
+    function searchProducts() {
+
+      const text =
+        document
+          .getElementById("search")
+          .value
+          .toLowerCase();
+
+      const filtered =
+        products.filter(product =>
+          product.name
+            .toLowerCase()
+            .includes(text)
+        );
+
+      displayProducts(filtered);
+
+    }
+
+
+    displayProducts();
+
+  </script>
+
+</body>
+</html>
